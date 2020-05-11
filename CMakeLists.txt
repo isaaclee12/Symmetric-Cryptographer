@@ -3,4 +3,9 @@ project(Cryptographer)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Cryptographer main.cpp)
+file(GLOB SOURCE_FILES
+        *.cpp
+        *.h
+        )
+
+add_executable(Cryptographer ${SOURCE_FILES})
