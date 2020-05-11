@@ -32,9 +32,14 @@ void Converter::addToCounter(char inputChar) {
 }
 
 void Converter::printCounters() {
-    for (counter c : counters) {
-        cout << c.letter << " : " << c.count << endl;
+    for (int i = 0; i < counters.size(); ++i) {
+        if (i != counters.size() - 1) {
+            cout << counters[i].letter << ": " << counters[i].count << ", ";
+        } else {
+            cout << counters[i].letter << " : " << counters[i].count;
+        }
     }
+    cout << endl;
 }
 
 void Converter::sortCounters() {
@@ -95,7 +100,7 @@ void Converter::printKey() {
     cout << endl;
 }
 
-int Converter::findCountRank(char inputChar) { //Grabs the index/rank of most frequent letter. Most fequent = 0.
+int Converter::findCountRank(char inputChar) { //Grabs the index/rank of most frequent letter. Most frequent = 0.
     for (int i = 0; i < counters.size(); ++i) {
         if (inputChar == counters[i].letter) { //get the counter with that letter
             return i; //return index
@@ -105,6 +110,7 @@ int Converter::findCountRank(char inputChar) { //Grabs the index/rank of most fr
 }
 
 string Converter::encode(string s) {
+    encodedMessage = "";
     for (int i = 0; i < s.length(); ++i) {
         if (findCountRank(s[i] >= 0)) { //if it's found
             encodedMessage += key[findCountRank(s[i])]; //replace that letter with the corresponding one in key
@@ -113,7 +119,24 @@ string Converter::encode(string s) {
     return encodedMessage;
 }
 
-string Converter::decode(string) {
+int Converter::findKeyRank(char inputChar) {
+    for (int i = 0; i < key.size(); ++i) { //search the whole key
+        if (inputChar == key[i]) { //when we find the item
+            return i; //return its index in the key
+        }
+    }
+    return -1;  //if not found return -1
+}
 
+string Converter::decode(string s) {
+    decodedMessage = "";
+
+    for (int i = 0; i < s.length(); ++i) {
+        if (findKeyRank(s[i] >= 0)) { //if it's found
+            decodedMessage += counters[findKeyRank(s[i])].letter; //replace that letter with the corresponding one in key
+        }
+    }
+
+    return decodedMessage;
 }
 

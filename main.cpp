@@ -17,25 +17,27 @@ int main() {
     //Input
     cout << "Enter input string: " << endl;
     getline(cin, inputString);
-    cout << inputString << endl;
 
     for (char c : inputString) { //Push back each character into a vector
-        if (c != ' ') {
-            letters.push_back(c);
-            converter.addToCounter(c);
-        }
+        letters.push_back(c);
+        converter.addToCounter(c);
     }
 
     //See each counter
+    cout << endl << "COUNTERS FOR FREQ. OF EACH LETTER: " << endl;
     converter.printCounters();
 
     //Sort them
-    cout << endl << "SORTING...." << endl;
+    cout << endl << "SORTING COUNTERS..." << endl;
     converter.sortCounters();
+
+    cout << endl << "COUNTERS SORTED:" << endl;
     converter.printCounters();
 
+    cout << endl << "KEY: " << endl;
     converter.printKey();
 
+    //Encode that message
     string encoded = converter.encode(inputString);
     cout << endl << "ENCODED: " << endl << encoded << endl;
 

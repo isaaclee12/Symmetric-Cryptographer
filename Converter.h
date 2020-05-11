@@ -41,6 +41,7 @@ protected:
     counter temp;
     int ct = 0;
     string encodedMessage;
+    string decodedMessage;
 
 
 
@@ -50,13 +51,13 @@ public:
     void addToCounter(char inputChar);
     void printCounters();
     void sortCounters();
-
     void keyRandomizer();
     bool keyRandomizerHelper(int index, vector<int> &indexVector);
     void printKey();
     int findCountRank(char inputChar);
     string encode(string s);
-    string decode(string);
+    int findKeyRank(char inputChar);
+    string decode(string s);
 };
 
 #endif //CRYPTOGRAPHER_CONVERTER_H
