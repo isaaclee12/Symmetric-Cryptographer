@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <ctime>
 using namespace std;
 
 struct counter {
@@ -29,23 +30,33 @@ protected:
     vector<counter> counters;
     counter tempCounter;
     bool counterAlreadyExists;
+    vector<char> key = {',', '!', '"', '#', '$', '%', '&', '(', ')', '*', '+', '-', '.', '/', ':', ';',
+                        '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~',
+                        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+                        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+                        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+
 
     //Sorting
     counter temp;
     int ct = 0;
+    string encodedMessage;
+
+
 
 public:
     Converter();
 
     void addToCounter(char inputChar);
     void printCounters();
-    void swap(int a, int b, vector<int> &vector);
-    int partition(int low, int high, vector<int> &vector);
-    void quickSort(int low, int high, vector<int> &vector);
     void sortCounters();
-    void alphabetScramble(vector<char> chars);
 
-
+    void keyRandomizer();
+    bool keyRandomizerHelper(int index, vector<int> &indexVector);
+    void printKey();
+    int findCountRank(char inputChar);
+    string encode(string s);
+    string decode(string);
 };
 
 #endif //CRYPTOGRAPHER_CONVERTER_H

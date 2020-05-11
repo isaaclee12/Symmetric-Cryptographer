@@ -10,25 +10,20 @@ int main() {
                              'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
     vector<char> letters;
     vector<char> crypt;
-    string items;
+    string inputString;
 
     Converter converter;
 
-    vector<int> intVector = {2, 4, 5, 86, 23, 49, 10, 912, 3, 23, 1, 40};
-
-    converter.quickSort(0, intVector.size(), intVector);
-    cout << "SORTING:" << endl;
-    for (int i : intVector) {
-        cout << i << ", ";
-    }
-
     //Input
-   /* cout << "Enter items: " << endl;
-    cin >> items;
+    cout << "Enter input string: " << endl;
+    getline(cin, inputString);
+    cout << inputString << endl;
 
-    for (char c : items) { //Push back each character into a vector
-        letters.push_back(c);
-        converter.addToCounter(c);
+    for (char c : inputString) { //Push back each character into a vector
+        if (c != ' ') {
+            letters.push_back(c);
+            converter.addToCounter(c);
+        }
     }
 
     //See each counter
@@ -37,7 +32,16 @@ int main() {
     //Sort them
     cout << endl << "SORTING...." << endl;
     converter.sortCounters();
-    converter.printCounters();*/
+    converter.printCounters();
+
+    converter.printKey();
+
+    string encoded = converter.encode(inputString);
+    cout << endl << "ENCODED: " << endl << encoded << endl;
+
+    string decoded = converter.decode(encoded);
+    cout << endl << "DECODED: " << endl << decoded << endl;
+
 
     /*for (char c: letters) { //Cryptographise them
     }*/
