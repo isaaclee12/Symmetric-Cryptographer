@@ -34,7 +34,7 @@ int main() {
     cout << endl << "COUNTERS SORTED:" << endl;
     converter.printCounters();
 
-    cout << endl << "KEY: " << endl;
+    cout << endl << "KEY: " << endl;k
     converter.printKey();
 
     //Encode that message
