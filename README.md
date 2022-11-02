@@ -8,5 +8,4 @@ This was more of a small project so that I could practice some simply cryptograp
 about cryptography and cybersecurity, such that I could confidently implement a (relatively) safe and secure encryption system for on of my
 future projects.
 
-This project was created using JetBrains CLion. To run this program you can clone this repo to CLion and run it from there, otherwise you will have to
-download the CMake program in order to compile and run the binaries. 
+This project was created using JetBrains CLion. To run this program you can clone this repo to CLion and run it from there, otherwise you will have to run CMAKE through another means in order to compile and run the binaries.
